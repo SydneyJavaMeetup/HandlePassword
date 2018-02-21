@@ -19,13 +19,13 @@ public class AppEntry {
     private AppCrypto crypto;
 
     @PutAction("/user/password")
-    public String setPassword(String password) {
+    public char[] setPassword(char[] password) {
         user.setPassword(crypto.passwordHash(password));
         return user.getPassword();
     }
 
     @GetAction("/user/password/verify")
-    public boolean verifyPassword(String password) {
+    public boolean verifyPassword(char[] password) {
         return crypto.verifyPassword(password, user.getPassword());
     }
 

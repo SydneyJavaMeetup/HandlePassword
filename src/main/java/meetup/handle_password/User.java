@@ -5,13 +5,13 @@ import javax.inject.Singleton;
 @Singleton
 public class User {
 
-    private String password;
+    private char[] password;
 
-    public String getPassword() {
+    public char[] getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(char[] password) {
         this.password = password;
     }
 
