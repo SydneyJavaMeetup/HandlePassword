@@ -6,7 +6,6 @@ import act.util.JsonView;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.PutAction;
 
-import java.util.Arrays;
 import javax.inject.Inject;
 
 @SuppressWarnings("unused")
@@ -21,12 +20,8 @@ public class AppEntry {
 
     @PutAction("/user/password")
     public char[] setPassword(char[] password) {
-        try {
-            user.setPassword(crypto.passwordHash(password));
-            return user.getPassword();
-        } finally {
-            Arrays.fill(password, '\0');
-        }
+        user.setPassword(crypto.passwordHash(password));
+        return user.getPassword();
     }
 
     @GetAction("/user/password/verify")
